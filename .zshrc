@@ -16,6 +16,7 @@ f () { if [[ $1 =~ ^[0-9]$ ]];then c_t=`ls -l | grep "^-" | awk -v tt=$1 'NR==tt
 d () { if [[ $1 =~ ^[0-9]$ ]];then c_t=`ls -l | grep "^d" | awk -v tt=$1 'NR==tt+1{print$9}'`; elif [[ $1 =~ l[0-9] ]];then l1=`echo $1 |cut -c2`; c_t=`ls -l | grep "^d" | awk -v tt=$l1 '{a[NR]=$9}END{print a[NR-tt]}'`; else c_t=`ls -l | grep "^d" | awk '{print$9}' |grep "$1" |  awk 'NR==1{print$0}'`; fi; echo $c_t; }
 ccd() { t=`ls | grep $1`; cd $t; }
 ip2dec () { local a b c d ip=$@ ; IFS=. read -r a b c d <<< "$ip"; printf '%d\n' "$((a * 256 ** 3 + b * 256 ** 2 + c * 256 + d))"; }
+pass2() {echo $1-$2 | sha1sum | base64 | head -c 20 | sed -n 's/[13579a-h]/7/p' | sed -n 's/[13579a-h]/\@/p'}
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 alias dvo='xmodmap ~/.fvwm/scripts/dvorak.pke'
 alias aaa='xmodmap ~/.fvwm/scripts/origin.pke'
@@ -100,3 +101,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 bindkey -v   #vi mode 
+bindkey "^R" history-incremental-search-backward
