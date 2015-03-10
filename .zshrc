@@ -20,6 +20,7 @@ pass2() {echo $1-$2 | sha1sum | base64 | head -c 20 | sed -n 's/[13579a-h]/7/p' 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 alias dvo='xmodmap ~/.fvwm/scripts/dvorak.pke'
 alias aaa='xmodmap ~/.fvwm/scripts/origin.pke'
+alias yunpa='ssh -D 19050 ops@freemind.gohjkl.com'
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
