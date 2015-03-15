@@ -103,3 +103,4 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v   #vi mode 
 bindkey "^R" history-incremental-search-backward
+export PYTHONSTARTUP=~/.pythonrc.py
