@@ -8,4 +8,3 @@
 import sys
 import requests
 from bs4 import BeautifulSoup
-sys.ps1 = "\033[0;34m>>> \033[0m"
