@@ -21,6 +21,7 @@ pass2() {echo $1-$2 | sha1sum | base64 | head -c 20 | sed -n 's/[13579a-h]/7/p' 
 alias dvo='xmodmap ~/.fvwm/scripts/dvorak.pke'
 alias aaa='xmodmap ~/.fvwm/scripts/origin.pke'
 alias yunpa='ssh -D 19050 ops@freemind.gohjkl.com'
+alias yun1='ssh ops@172.16.211.44'
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
