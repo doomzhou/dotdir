@@ -51,8 +51,6 @@ nmap <leader>w :w!<cr>
 "
 map <Leader>n <esc>:tabprevious<CR>
 map <Leader>m <esc>:tabnext<CR>
-"set python-dictionary
-set dictionary+=~/.vim/template/py-complete.dict
 "set dictionary
 set dictionary+=~/.vim/doc/engspchk.dict
 let g:SuperTabDefaultCompletionType = "context"
@@ -65,11 +63,13 @@ filetype plugin indent on
 set completeopt=longest,menu "防止抖动
 
 "jedi for autocomplete python ide from github vim-as-a-ide
-let g:jedi#usages_command = "<leader>z"
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c> " "
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-l>"
+let g:jedi#rename_command = "<leader>r"
+autocmd FileType python setlocal completeopt-=preview
 
 "Automatic headers
  autocmd bufnewfile *.sh so ~/.vim/doc/sh.t
