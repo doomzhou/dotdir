@@ -3,7 +3,7 @@ let mapleader = ","
 "color 
 map <F5> ggg?G``
 set t_Co=256
-color wombat256mod
+color molokai
 "colorscheme mustang
 "display utf-8
 set fencs=utf-8,chinese,latin1 fenc=utf-8 enc=utf-8
