@@ -104,5 +104,5 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey -v   #vi mode 
 bindkey "^R" history-incremental-search-backward
-bindkey "\e." yank-last-arg
+bindkey '\e.' insert-last-word
 export PYTHONSTARTUP=~/.pythonrc.py
