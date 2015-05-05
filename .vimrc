@@ -88,7 +88,7 @@ autocmd FileType python setlocal completeopt-=preview
 "autocmd QuitPre *.py exe "1," .  7 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
  autocmd bufwritepost,filewritepost *.py execute "normal `a"
 "Automatic headers for HTML
- autocmd bufnewfile *.\(html\|htm\) so ~/.vim/template/html.t
+"autocmd bufnewfile *.\(html\|htm\) so ~/.vim/template/html.t
 
 
 "##############################################################################
