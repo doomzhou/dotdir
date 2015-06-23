@@ -20,7 +20,7 @@ pass2() {echo $1-$2 | sha1sum | base64 | head -c 20 | sed -n 's/[13579a-h]/7/p' 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 alias dvo='xmodmap ~/.fvwm/scripts/dvorak.pke'
 alias aaa='xmodmap ~/.fvwm/scripts/origin.pke'
-alias yunpa='ssh -D 19050 ops@freemind.gohjkl.com'
+alias yunpa='ssh -D 19050 ops@173.252.206.20'
 alias yun1='ssh ops@172.16.211.44'
 export ZSH=$HOME/.oh-my-zsh
 
@@ -106,3 +106,4 @@ bindkey -v   #vi mode
 bindkey "^R" history-incremental-search-backward
 bindkey '\e.' insert-last-word
 export PYTHONSTARTUP=~/.pythonrc.py
+export TERM="xterm-256color"
