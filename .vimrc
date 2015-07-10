@@ -9,8 +9,48 @@ map <F5> ggg?G``
 
 "display utf-8
 set fencs=utf-8,chinese,latin1 fenc=utf-8 enc=utf-8
-set nu
-set rnu
+
+" 相对行号      行号变成相对，可以用 nj  nk   进行跳转 5j   5k 上下跳5行
+set relativenumber number                                                                                                                                             
+au FocusLost * :set norelativenumber number
+au FocusGained * :set relativenumber
+" 插入模式下用绝对行号, 普通模式下用相对
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <C-n> :call NumberToggle()<cr>
+
+"回车即选中当前项
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+
+autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载
+noremap <F1> <Esc>"
+
+""为方便复制，用<F2>开启/关闭行号显示:
+function! HideNumber()
+  if(&relativenumber == &number)
+    set relativenumber! number!
+  elseif(&number)   
+    set number!     
+  else     
+    set relativenumber!
+  endif    
+  set number?       
+endfunc    
+nnoremap <F2> :call HideNumber()<CR>
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+" 进入搜索Use sane regexes"
+nnoremap / /\v
+vnoremap / /\v
+
 syntax on
 "copy to clipboard
 "set clipboard=unnamedplus
@@ -57,14 +97,18 @@ map <Leader>m <esc>:tabnext<CR>
 set dictionary+=~/.vim/doc/engspchk.dict
 let g:SuperTabDefaultCompletionType = "context"
 
+"00x增减数字时使用十进制
+set nrformats=
+
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
 "colorscheme solarized
-let g:solarized_termcolors=256  
-set background=dark  
+let g:solarized_termcolors=256
+set background=dark
 colorscheme solarized
+
 
 "supertab
 set completeopt=longest,menu "防止抖动
