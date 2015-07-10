@@ -1,13 +1,16 @@
 "Leaderkey
 let mapleader = ","
-"color 
+
+"magic key
 map <F5> ggg?G``
-set t_Co=256
-color molokai
+"set t_Co=256
+"color molokai
 "colorscheme mustang
+
 "display utf-8
 set fencs=utf-8,chinese,latin1 fenc=utf-8 enc=utf-8
 set nu
+set rnu
 syntax on
 "copy to clipboard
 "set clipboard=unnamedplus
@@ -31,7 +34,6 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
-set pastetoggle=<F10>
 "stupid swp file ....
 set nobackup
 set nowritebackup
@@ -58,6 +60,11 @@ let g:SuperTabDefaultCompletionType = "context"
 execute pathogen#infect()
 syntax on
 filetype plugin indent on
+
+"colorscheme solarized
+let g:solarized_termcolors=256  
+set background=dark  
+colorscheme solarized
 
 "supertab
 set completeopt=longest,menu "防止抖动
