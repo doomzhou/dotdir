@@ -238,3 +238,6 @@ autocmd BufReadPost *
 "Practical vim book
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+"X copy paster
+vmap +y :w !xsel -b<CR><CR>
+map +p :r!xsel -b<CR>
