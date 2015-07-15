@@ -106,4 +106,4 @@ bindkey -v   #vi mode
 bindkey "^R" history-incremental-search-backward
 bindkey '\e.' insert-last-word
 export PYTHONSTARTUP=~/.pythonrc.py
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
