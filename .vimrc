@@ -3,9 +3,10 @@ let mapleader = ","
 
 "magic key
 map <F5> ggg?G``
-"set t_Co=256
-"color molokai
-"colorscheme mustang
+nnoremap <F4> :set wrap! wrap?<CR>
+" Press F3 for toggle paste mode && disbale paste mode when leaving insert mode
+set pastetoggle=<F3>         
+au InsertLeave * set nopaste
 
 "display utf-8
 set fencs=utf-8,chinese,latin1 fenc=utf-8 enc=utf-8
@@ -105,9 +106,12 @@ syntax on
 filetype plugin indent on
 
 "colorscheme solarized
-let g:solarized_termcolors=256
+"fix bug http://stackoverflow.com/a/18224803
 set background=dark
+set t_Co=256
 colorscheme solarized
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 
 "supertab
@@ -169,8 +173,6 @@ nnoremap <leader>v "+gP
 "You can change with this :
 let g:pep8_map='<F6>'
 
-" Press F3 for toggle paste mode
-set pastetoggle=<F3>         
 
 "MRU
 map <leader><space> :MRU<CR> 
@@ -229,10 +231,7 @@ imap <C-R>c <C-R>+
 imap <C-R>f <C-R>%
 imap <C-R>y <C-R>"
 "Restore cursor to file position in previous 
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \ exe "normal g`\"" |
-     \ endif"
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
 "Practical vim book
@@ -241,3 +240,37 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 "X copy paster
 vmap +y :w !xsel -b<CR><CR>
 map +p :r!xsel -b<CR>
+
+"设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
+"好处：误删什么的，如果以前屏幕打开，可以找回
+set t_ti= t_te=
+" hl 可以自动上下行
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+"显示当前的行号列号：
+set ruler
+""在状态栏显示正在输入的命令
+set showcmd
+" 左下角显示当前vim模式
+set showmode
+" 在上下移动光标时，光标的上方或下方至少会保留显示的行数
+set scrolloff=7
+
+" 命令行（在状态行下）的高度，默认为1，这里是2
+set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+" Always show the status line - use 2 lines for the status bar
+set laststatus=2
+
+" 如遇Unicode值大于255的文本，不必等到空格再折行。
+set formatoptions+=m
+" 合并两行中文时，不在中间加空格：
+set formatoptions+=B
+"Keep search pattern at the center of the screen."
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+" w!! to sudo & write a file
+cmap w!! w !sudo tee >/dev/null %
+" select block
+nnoremap <leader>v V`}
+" kj 替换 Esc
+inoremap jj <Esc>
