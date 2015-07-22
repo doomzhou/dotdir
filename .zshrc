@@ -10,6 +10,10 @@ alias ....='cd ../../../'
 alias .....='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+alias cnpm="npm --registry=https://registry.npm.taobao.org \
+  --cache=$HOME/.npm/.cache/cnpm \
+  --disturl=https://npm.taobao.org/dist \
+  --userconfig=$HOME/.cnpmrc"
 wiki() { dig +short txt $1.wp.dg.cx; }
 cdls() { builtin cd $1 && ls; }
 f () { if [[ $1 =~ ^[0-9]$ ]];then c_t=`ls -l | grep "^-" | awk -v tt=$1 'NR==tt+1{print$9}'`; elif [[ $1 =~ l[0-9] ]];then l1=`echo $1 |cut -c2`; c_t=`ls -l | grep "^-" | awk -v tt=$l1 '{a[NR]=$9}END{print a[NR-tt]}'`; else c_t=`ls -l | grep "^-" | awk '{print$9}' |grep "$1" |  awk 'NR==1{print$0}'`; fi; echo $c_t; }
@@ -21,7 +25,7 @@ pass2() {echo $1-$2 | sha1sum | base64 | head -c 20 | sed -n 's/[13579a-h]/7/p' 
 alias dvo='xmodmap ~/.fvwm/scripts/dvorak.pke'
 alias aaa='xmodmap ~/.fvwm/scripts/origin.pke'
 alias yunpa='ssh -D 19050 ops@173.252.206.20'
-alias yun1='ssh ops@172.16.211.44'
+alias syt_dev='ssh root@121.40.90.207'
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -107,3 +111,5 @@ bindkey "^R" history-incremental-search-backward
 bindkey '\e.' insert-last-word
 export PYTHONSTARTUP=~/.pythonrc.py
 #export TERM="xterm-256color"
+
+#alias for cnpm
