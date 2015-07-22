@@ -5,5 +5,6 @@ export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 xscreensaver -no-splash &
 fcitx &
+/usr/bin/VBoxClient-all
 exec fvwm2
 xmodmap ~/.fvwm/scripts/dvorak.pke
