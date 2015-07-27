@@ -274,3 +274,5 @@ cmap w!! w !sudo tee >/dev/null %
 nnoremap <leader>v V`}
 " kj 替换 Esc
 inoremap jj <Esc>
+" vim-markdown
+let g:vim_markdown_folding_disabled=1
