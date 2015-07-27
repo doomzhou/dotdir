@@ -23,6 +23,7 @@ alias dvo='xmodmap ~/.fvwm/scripts/dvorak.pke'
 alias aaa='xmodmap ~/.fvwm/scripts/origin.pke'
 alias yunpa='ssh -D 19050 ops@173.252.206.20'
 alias syt_dev='ssh root@121.40.90.207'
+alias mon='ssh root@120.26.103.36'
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
