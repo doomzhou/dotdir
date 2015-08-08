@@ -22,8 +22,6 @@ pass2() {echo $1-$2 | sha1sum | base64 | head -c 20 | sed -n 's/[13579a-h]/7/p' 
 alias dvo='xmodmap ~/.fvwm/scripts/dvorak.pke'
 alias aaa='xmodmap ~/.fvwm/scripts/origin.pke'
 alias yunpa='ssh -D 19050 ops@173.252.206.20'
-alias syt_dev='ssh root@121.40.90.207'
-alias mon='ssh root@120.26.103.36'
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -78,6 +76,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+source .server.lst
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
