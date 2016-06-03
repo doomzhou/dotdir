@@ -21,14 +21,14 @@ pass2() {echo $1-$2 | sha1sum | base64 | head -c 20 | sed -n 's/[13579a-h]/7/p' 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 alias dvo='xmodmap ~/.fvwm/scripts/dvorak.pke'
 alias aaa='xmodmap ~/.fvwm/scripts/origin.pke'
-alias yunpa='ssh -D 19050 ops@173.252.206.20'
 export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="sorin"
+# ZSH_THEME="sorin"
+ZSH_THEME="gallifrey"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -59,7 +59,7 @@ ZSH_THEME="sorin"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -72,7 +72,8 @@ plugins=(git)
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/home/doom/.gem/ruby/2.3.0/bin:$HOME/bin:/usr/local/bin:$PATH
+export BROWSER="google-chrome-stable"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -108,5 +109,8 @@ bindkey "^R" history-incremental-search-backward
 bindkey '\e.' insert-last-word
 export PYTHONSTARTUP=~/.pythonrc.py
 #export TERM="xterm-256color"
+#
+export ANDROIDSDK='/home/doom/.buildozer/android/platform/android-sdk-20'
+export ANDROIDNDK='/home/doom/.buildozer/android/platform/android-ndk-r9c'
+export ANDROIDAPI='14'
 
-#alias for cnpm
