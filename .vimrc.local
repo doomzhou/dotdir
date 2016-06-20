@@ -5,11 +5,8 @@ let mapleader = ","
 map <F5> ggg?G``
 nnoremap <F4> :set wrap! wrap?<CR>
 " Press F3 for toggle paste mode && disbale paste mode when leaving insert mode
-set pastetoggle=<F3>         
+set pastetoggle=<F3>
 au InsertLeave * set nopaste
-
-"display utf-8
-set fencs=utf-8,chinese,latin1 fenc=utf-8 enc=utf-8
 
 " 相对行号      行号变成相对，可以用 nj  nk   进行跳转 5j   5k 上下跳5行
 set relativenumber number                                                                                                                                             
@@ -52,7 +49,6 @@ map <space> /
 nnoremap / /\v
 vnoremap / /\v
 
-syntax on
 "copy to clipboard
 "set clipboard=unnamedplus
 
@@ -61,14 +57,7 @@ set hlsearch nospell
 set incsearch
 set is
 set smartcase
-"
-if has("autocmd")
-    filetype on
-    autocmd FileType html setlocal ts=2 sts=2 sw=2 et textwidth=0
-    autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noet
-    autocmd FileType css set ts=2 sts=2 sw=2 noet
-endif
-""""
+
 "I am a real programmer and tab not space
 set tabstop=4
 set softtabstop=4
@@ -101,16 +90,8 @@ let g:SuperTabDefaultCompletionType = "context"
 "00x增减数字时使用十进制
 set nrformats=
 
-syntax on
-filetype plugin indent on
-
-"colorscheme solarized
-"fix bug http://stackoverflow.com/a/18224803
-set background=dark
-set t_Co=256
-colorscheme solarized
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+"syntax on
+"filetype plugin indent on
 
 
 "supertab
