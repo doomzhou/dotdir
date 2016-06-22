@@ -22,12 +22,6 @@ xterm*eightBitInput: false
 xterm*altSendsEscape: true!print color and bold/underline attributes
 xterm*printAttributes: 2
 xterm*printerCommand: cat > ~/xtermdump
-!mouse selecting to copy, ctrl-v to paste
-!Ctrl p to print screen content to file
-XTerm*VT100.Translations: #override \
-    Ctrl <KeyPress> V: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
-    <BtnUp>: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
-    Ctrl <KeyPress> P: print() \n
 !font and locale
 xterm*locale: true
 xterm.utf8:     true
@@ -53,8 +47,10 @@ xterm*cjkWidth:false
 *xterm*color14: #00f5e9
 *xterm*color15: #eeeeec
 
-! 配置复制粘贴
-*VT100*translations: #override \n\
-Shift <KeyPress> Insert:insert-selection(CLIPBOARD, CUT_BUFFER1) \n\
-~Shift~Ctrl<Btn2Up>: insert-selection(CLIPBOARD, CUT_BUFFER1) \n\
-~Shift<BtnUp>: select-end(CLIPBOARD, CUT_BUFFER1) 
+!
+*VT100.Translations: #override \
+    <Key>BackSpace: string(0x7F)\n\
+    <Key>Delete:    string("\033[3~")\n\
+    <Key>Home:      string("\033[1~")\n\
+    <Key>End:       string("\033[4~")
+*ttyModes: erase ^?
