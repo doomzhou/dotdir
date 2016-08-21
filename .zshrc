@@ -14,6 +14,7 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --cache=$HOME/.npm/.cache/cnpm \
   --disturl=https://npm.taobao.org/dist \
   --userconfig=$HOME/.cnpmrc"
+snet() { ss -ant | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}';}
 wiki() { dig +short txt $1.wp.dg.cx; }
 cdls() { builtin cd $1 && ls; }
 ip2dec () { local a b c d ip=$@ ; IFS=. read -r a b c d <<< "$ip"; printf '%d\n' "$((a * 256 ** 3 + b * 256 ** 2 + c * 256 + d))"; }
@@ -109,6 +110,6 @@ bindkey "^R" history-incremental-search-backward
 bindkey '\e.' insert-last-word
 export PYTHONSTARTUP=~/.pythonrc.py
 #
-export ANDROIDSDK='/home/doom/.buildozer/android/platform/android-sdk-20'
-export ANDROIDNDK='/home/doom/.buildozer/android/platform/android-ndk-r9c'
-export ANDROIDAPI='14'
+
+export GOPATH=~/go
+export PATH=$PATH:~/go/bin:/opt/openresty/nginx/sbin
