@@ -1,3 +1,16 @@
+alias rm='rm -i'
+alias cp='cp -i'
+alias grep='grep --color=auto'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+snet() { ss -ant | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}';}
+wiki() { dig +short txt $1.wp.dg.cx; }
+ip2dec () { local a b c d ip=$@ ; IFS=. read -r a b c d <<< "$ip"; printf '%d\n' "$((a * 256 ** 3 + b * 256 ** 2 + c * 256 + d))"; }
+pass2() {echo $1-$2 | shasum | base64 | head -c 20 | sed -n 's/[13579a-h]/7/p' | sed -n 's/[13579a-h]/\@/p'}
 alias switchxrandr="xrandr | awk 'NR==3{print\$1}' | xargs xrandr -s"
 source ~/.server.lst
 # If you come from bash you might have to change your $PATH.
