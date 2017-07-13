@@ -1,10 +1,4 @@
-export XMODIFIERS="@im=fcitx"
-export XIM=fcitx
-export XIM_PROGRAM=fcitx
-export QT_IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx
-xset -b
-xscreensaver -no-splash &
-fcitx &
-xmodmap ~/.fvwm/scripts/dvorak.pke
-exec fvwm2
+#xrdb ~/.Xresources
+xset r rate 250 60
+/usr/bin/VBoxClient-all &
+exec i3 -V >> /tmp/i3log-$(date +'%F-%k-%M-%S') 2>&1
