@@ -1,8 +1,7 @@
-# dotdir
+1. config.lua         # for hammerspoon
+`cp config.lua ~/.hammerspoon/private/config.lua`
 
-pkglist  # 备份archlinux 软件 恢复 `lpacman -S $(< pkglist)`
-
-* .Xresources
->Xterm配置文件 add at Mon Jun 20 09:59:32 CST 2016
-
-*
+2. Remove Dock 
+>https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
+`defaults write com.apple.dock pinning -string end`
+`killall Dock`
